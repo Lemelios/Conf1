@@ -12,16 +12,28 @@ Scope {
 
       		anchors {
 	        	top: true
+			right: true 
+			left: true 
 		}
-		implicitWidth: 200 
 	      	implicitHeight: 30
-		color: "transparent"; 
+		color: "#3FAB30"
 		Rectangle {
+			color: "transparent" 
 			anchors.fill: parent
+			anchors.centerIn: parent
+			implicitWidth: 200
 			radius: 20;		
-			color: "#3FAB30";
       			ClockWidget {
         			anchors.centerIn: parent
+			}
+		}
+		Rectangle {
+			color: "transparent"
+			anchors.centerIn: parent
+			implicitWidth: 50
+			radius: 20
+			BatWdg {
+				anchors.centerIn: parent
 			}
 		}
     	}

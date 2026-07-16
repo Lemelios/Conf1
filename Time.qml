@@ -14,7 +14,7 @@ Singleton {
 
   Process {
     id: dateProc
-    command: ["sh", "-c", "date '+%a %d %b %Y %H:%M:%S'"]
+    command: ["sh", "-c", "date '+%a %d %b %Y | %H:%M:%S'"]
     running: true
 
     stdout: StdioCollector {
