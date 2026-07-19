@@ -16,7 +16,7 @@ Singleton {
 		stdout : StdioCollector {
 			onStreamFinished: {
 				root.capacity = this.text
-			 	if (this.text*1 <= 20) {
+			 	if (parseInt(this.text) <= 20) {
 					lowbat.running = true
 				}
 			}
@@ -25,7 +25,7 @@ Singleton {
 
 	Process { 
 		id: lowbat
-		command: ["sh", "-c", "notify-send -u critical 'Low Battery' 'Battery level : `cat /sys/class/power_supply/BAT1/capacity`'"]
+		command: ["notify-send", "-u", "critical", "Low Battery", "Battery level : " + root.capacity]
 		running: false
 
 	}

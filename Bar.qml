@@ -19,7 +19,7 @@ Scope {
 		color: "#3FAB30"
 		Rectangle {
 			id: clock
-			color: "transparent" 
+			color: "purple" 
 			anchors.centerIn: parent
 			implicitWidth: 200
 			radius: 20;		
@@ -29,7 +29,7 @@ Scope {
 		}
 		Rectangle {
 			id: battery
-			color: "transparent"
+			color: "purple"
 			anchors.verticalCenter: parent.verticalCenter
 			anchors.left: clock.right
 			implicitWidth:50
