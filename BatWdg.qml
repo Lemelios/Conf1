@@ -1,5 +1,5 @@
 import QtQuick 
 
 Text { 
-	text: Batterie.capacity + "%" 
+	text: Batterie.capacity
 }

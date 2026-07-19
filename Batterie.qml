@@ -10,18 +10,29 @@ Singleton {
 
 	Process {
 		id: getCapacityLevel
-		command: ["sh", "-c", "cat /sys/class/power_supply/BAT1/capacity"] 
+		command: ["sh", "-c", "echo `cat /sys/class/power_supply/BAT1/capacity`%"] 
 		running: true
 
 		stdout : StdioCollector {
-			onStreamFinished: root.capacity = this.text
+			onStreamFinished: {
+				root.capacity = this.text
+			 	if (this.text*1 <= 20) {
+					lowbat.running = true
+				}
+			}
 		}
 	}
-	
+
+	Process { 
+		id: lowbat
+		command: ["sh", "-c", "notify-send -u critical 'Low Battery' 'Battery level : `cat /sys/class/power_supply/BAT1/capacity`'"]
+		running: false
+
+	}
 	Timer {
 		interval: 30000
 		running: true 
 		repeat: true 
-		onTriggered: getCapacityLevel.running = true 
+		onTriggered: getCapacityLevel.running = true
 	}
 }

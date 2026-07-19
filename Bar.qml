@@ -18,8 +18,8 @@ Scope {
 	      	implicitHeight: 30
 		color: "#3FAB30"
 		Rectangle {
+			id: clock
 			color: "transparent" 
-			anchors.fill: parent
 			anchors.centerIn: parent
 			implicitWidth: 200
 			radius: 20;		
@@ -28,9 +28,11 @@ Scope {
 			}
 		}
 		Rectangle {
+			id: battery
 			color: "transparent"
-			anchors.centerIn: parent
-			implicitWidth: 50
+			anchors.verticalCenter: parent.verticalCenter
+			anchors.left: clock.right
+			implicitWidth:50
 			radius: 20
 			BatWdg {
 				anchors.centerIn: parent
