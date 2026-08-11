@@ -15,8 +15,8 @@ Scope {
 			right: true 
 			left: true 
 		}
-	      	implicitHeight: 30
-		color: "#3FAB30"
+	  implicitHeight: 30
+		color: "green"
 		Rectangle {
 			id: clock
 			color: "purple" 
@@ -38,7 +38,7 @@ Scope {
 				anchors.centerIn: parent
 			}
 		}
-    	}
+  }
   }
 }
 
