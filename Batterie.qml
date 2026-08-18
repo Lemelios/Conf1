@@ -16,8 +16,14 @@ Singleton {
 		stdout : StdioCollector {
 			onStreamFinished: {
 				root.capacity = this.text
-			 	if (parseInt(this.text) <= 20) {
-					lowbat.running = true
+				if (parseInt(this.text) <= 20) {
+					if (lowbat.notif_sent == false) {
+						lowbat.notif_sent = true 
+						lowbat.running = true 
+					}
+					else {
+						lowbat.notif_sent = false
+					}
 				}
 			}
 		}
@@ -25,6 +31,7 @@ Singleton {
 
 	Process { 
 		id: lowbat
+		property bool notif_sent: false 
 		command: ["notify-send", "-u", "critical", "Low Battery", "Battery level : " + root.capacity]
 		running: false
 
