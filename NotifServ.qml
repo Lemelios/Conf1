@@ -48,7 +48,7 @@ Scope {
 		ColumnLayout {
 			id: column 
 			width: parent.width 
-			spacing: 10
+			spacing: 5
 
 			Repeater {
 				model: server.trackedNotifications
@@ -87,7 +87,7 @@ Scope {
 						}
 						ColumnLayout {
 							Layout.fillWidth: true
-							spacing: 2
+							spacing: 5
 							Text {
 								id: head
 								Layout.fillWidth: true

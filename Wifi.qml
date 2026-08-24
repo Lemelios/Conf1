@@ -3,14 +3,15 @@ pragma Singleton
 import Quickshell 
 import Quickshell.Io
 import QtQuick
+import Quickshell.Networking
 
 Singleton {
 	id: root 
-	property string name: ""
-	property string stat: disconnected 
+	property string name  
+	property string stat  
 	Process {
 		id: getName 
-		command: ['#'] // 17 for status 
+		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "4"] // 17 for status 
 		running: true 
 
 		stdout : StdioCollector {
@@ -21,7 +22,7 @@ Singleton {
 	}
 	Process {
 		id: getStatus 
-		command: ["sh", "-c", 'nmcli dev status | cut -d " " -f 17 | head -2 | tail -1']
+		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "2"] // 17 for status 
 		running: true 
 
 		stdout : StdioCollector {

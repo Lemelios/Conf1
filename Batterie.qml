@@ -17,7 +17,7 @@ Singleton {
 			onStreamFinished: {
 				root.capacity = this.text
 				if (parseInt(this.text) <= 20) {
-					if (lowbat.notif_sent == false) {
+					if (lowbat.notif_sent === false) {
 						lowbat.notif_sent = true 
 						lowbat.running = true 
 					}

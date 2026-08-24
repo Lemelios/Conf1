@@ -1,44 +1,39 @@
 import Quickshell 
 import QtQuick
 import Quickshell.Wayland
+import QtQuick.Layouts
 
 Scope {
   Variants {
     model: Quickshell.screens
 
-	PanelWindow {
-		required property var modelData
-		screen: modelData
+		PanelWindow {
+			required property var modelData
+			screen: modelData
+			implicitHeight: 30
+			color: "#baffaa"
+      	anchors {
+			  	top: true
+					right: true 
+					left: true 
+			}
 
-      		anchors {
-	        	top: true
-			right: true 
-			left: true 
-		}
-	  implicitHeight: 30
-		color: "green"
-		Rectangle {
-			id: clock
-			color: "purple" 
-			anchors.centerIn: parent
-			implicitWidth: 200
-			radius: 20;		
-      			ClockWidget {
-        			anchors.centerIn: parent
-			}
-		}
-		Rectangle {
-			id: battery
-			color: "purple"
-			anchors.verticalCenter: parent.verticalCenter
-			anchors.left: clock.right
-			implicitWidth:50
-			radius: 20
-			BatWdg {
+			RowLayout {
+				id: items
 				anchors.centerIn: parent
+				height : 10
+				spacing: 15
+				ClockWidget{
+					color: "purple"
+				}
+				BatWdg{
+					color: "purple"
+				}
+				WifiWdg{
+					color: "purple"
+				}
 			}
 		}
-  }
   }
 }
 
