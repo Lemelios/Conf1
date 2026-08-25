@@ -11,7 +11,7 @@ Singleton {
 	property string stat  
 	Process {
 		id: getName 
-		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "4"] // 17 for status 
+		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "4"] 
 		running: true 
 
 		stdout : StdioCollector {
@@ -22,7 +22,7 @@ Singleton {
 	}
 	Process {
 		id: getStatus 
-		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "2"] // 17 for status 
+		command: ["nmcli", "|", "head", "-1", "|", "cut", "-d", '" "', "-f", "2"]
 		running: true 
 
 		stdout : StdioCollector {

@@ -1,5 +1,9 @@
 import QtQuick 
+import Quickshell.Networking
 
+/*Text {
+	text: `${Wifi.stat} ${Wifi.name}`
+}*/
 Text {
-	text: Wifi.stat + " " + Wifi.name
+	text: toString(ConnectionState)
 }

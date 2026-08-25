@@ -22,14 +22,16 @@ Scope {
 				id: items
 				anchors.centerIn: parent
 				height : 10
-				spacing: 15
+				spacing: 25
 				ClockWidget{
 					color: "purple"
 				}
 				BatWdg{
 					color: "purple"
 				}
-				WifiWdg{
+			
+				Text {
+					text: Wifi.stat + " " + Wifi.name
 					color: "purple"
 				}
 			}
