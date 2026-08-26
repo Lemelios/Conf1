@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import Quickshell.Wayland
 import QtQuick.Layouts
+import Quickshell.Services.UPower
 
 Scope {
   Variants {
@@ -19,23 +20,51 @@ Scope {
 			}
 
 			RowLayout {
-				id: items
-				anchors.centerIn: parent
-				height : 10
-				spacing: 25
-				ClockWidget{
-					color: "purple"
+				id: left
+				anchors {
+					left : parent.left 
+					verticalCenter : parent.verticalCenter
+					leftMargin : 12
 				}
-				BatWdg{
+				height : 10
+				spacing: 15
+				Text {
+					text: UPower.displayDevice.ready ? "bat : " + UPower.displayDevice.percentage * 100 + "%" : "problème !"
 					color: "purple"
 				}
 			
+				Text {
+					text: ""
+					color: "purple"
+				}
 				Text {
 					text: Wifi.stat + " " + Wifi.name
 					color: "purple"
 				}
 			}
-		}
-  }
+
+			RowLayout {
+				id: middle
+				anchors.centerIn : parent
+				Text {
+					text: Qt.formatDateTime(clock.date, "hh:mm")
+					color: "purple"
+				}
+
+			}
+			RowLayout {
+				id: right 
+				anchors {
+					right : parent.right 
+					verticalCenter : parent.verticalCenter
+					rightMargin : 12
+				}
+			}
+		}	
+	}
+	SystemClock {
+			id: clock 
+			precision: SystemClock.Minutes
+	}
 }
 
