@@ -3,8 +3,6 @@ import QtQuick
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import QtQuick.Layouts
-import Quickshell.Services.UPower
-import Quickshell.Services.Pipewire
 
 Scope {
   Variants {
@@ -15,10 +13,10 @@ Scope {
 			screen: modelData
 			implicitHeight: 30
 			color: "#baffaa"
-      	anchors {
+      		anchors {
 			  	top: true
-					right: true 
-					left: true 
+				right: true 
+				left: true 
 			}
 
 			RowLayout {
@@ -28,33 +26,18 @@ Scope {
 					verticalCenter : parent.verticalCenter
 					leftMargin : 12
 				}
-				height : 10
 				spacing: 15
-				Text {
-					property string capacity : Math.round((UPower.displayDevice.percentage ?? 0) * 100) + "%"
-					text: (UPower.displayDevice.state === UPowerDeviceState.Charging ? "ᛪ " :  "ᛃ " ) + capacity	
-					color: "purple"
-				}
-			
-				Text {
-					text: "ᛰ " + Math.round((Pipewire.defaultAudioSink?.audio?.volume ?? 0)* 100) 
-					color: "purple"
-				} PwObjectTracker { objects: [Pipewire.defaultAudioSink]}
-
-				Text {
-					text: "ᛠ " + Wifi.stat + (Wifi.stat == "connecté" ? " : " : " ")+Wifi.name
-					color: "purple"
-				}
+				
+				BatWdg {}
+				AudioWdg {}
+				WifiWdg {}
 			}
 
 			RowLayout {
 				id: middle
 				anchors.centerIn : parent
-				Text {
-					text: "ᛤ " + Qt.formatDateTime(clock.date, "hh:mm")
-					color: "purple"
-				}
-
+				spacing: 15
+				Clock{}
 			}
 			RowLayout {
 				id: right 
@@ -63,12 +46,9 @@ Scope {
 					verticalCenter : parent.verticalCenter
 					rightMargin : 12
 				}
+				spacing: 15
 			}
 		}	
-	}
-	SystemClock {
-			id: clock 
-			precision: SystemClock.Minutes
 	}
 }
 

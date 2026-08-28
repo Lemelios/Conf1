@@ -1,9 +1,9 @@
-import QtQuick 
+import QtQuick
+import Quickshell
 import Quickshell.Networking
 
-/*Text {
-	text: `${Wifi.stat} ${Wifi.name}`
-}*/
 Text {
-	text: toString(ConnectionState)
+    property bool connecté: Networking.NetworkDevice.state === ConnectionState.Connected
+    text: "ᛠ " + Wifi.stat + (connecté ? " : " : "") + Wifi.name
+    color: "purple"
 }
