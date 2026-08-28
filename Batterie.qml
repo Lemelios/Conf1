@@ -22,7 +22,9 @@ Singleton {
 						lowbat.running = true 
 					}
 					else {
-						lowbat.notif_sent = false
+						if (this.text <= 20) {
+							lowbat.notif_sent = false
+						}
 					}
 				}
 			}
