@@ -18,7 +18,7 @@ Singleton {
 		stdout : StdioCollector {
 			onStreamFinished: {
 				const lines = this.text.trim().split("\n")
-				const activeLine = lines[0]
+				const activeLine = lines.find(n => n.split(":")[1] === "wifi")
 				root.name = activeLine ? activeLine.split(":")[3] : ""
 			}
 		}
