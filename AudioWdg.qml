@@ -3,23 +3,23 @@ import Quickshell.Services.Pipewire
 import QtQuick.Layouts
 import QtQuick
 
-RowLayout {
-    id: row
-    anchors.verticalCenter : parent.verticalCenter
-    Text{
-        property var speaker: Pipewire.defaultAudioSink?.audio
-        property bool mute: speaker.muted 
-        id: icon 
-        text: muted ? "no_sound" : "volume_up"
-        font.family : "Material Symbols Rounded"
-    } 
-    Text {
-        property var speaker: Pipewire.defaultAudioSink?.audio
-        id : level
-        text: "ᛰ " + Math.round((speaker?.volume ?? 0)* 100) 
-        color: "purple";
-        font.family:"Terminus"
-    } 
+Text {
+    property var speaker: Pipewire.defaultAudioSink?.audio;
+    property var level: Math.round((speaker?.volume ?? 0) * 100)
+    property var mute: speaker?.muted;
+    readonly property string icon : {
+      if (mute) return String.fromCodePoint("0xeee8")
+      let icon = level >= 66 ? "0xf028"
+                : level >= 33 ? "0xf027"
+                : "0xf026"
+      return String.fromCodePoint(icon)
+    }
+    text: icon + "  " + level
+    color: "purple";
+    font {
+      family:"Terminess Nerd Font Proto"
+      pixelSize : 15
+		}	 
     PwObjectTracker { objects: [Pipewire.defaultAudioSink]}
 }
 
