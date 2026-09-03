@@ -11,8 +11,8 @@ Scope {
 		PanelWindow {
 			required property var modelData
 			screen: modelData
-			implicitHeight: 30
-			color: "#baffaa"
+			implicitHeight: 33
+			color: "transparent"
       		anchors {
 			  	top: true
 				right: true 

@@ -2,23 +2,48 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
-RowLayout {
-    property var icon 
-    property var data
-    Text {
+Rectangle {
+	id: root 
+
+	property string icon 
+	property string value 
+	property var iconColor: "purple" 
+	property int maxLabelWidth : 500
+
+	implicitWidth: row.implicitWidth + 22
+	implicitHeight: 33
+
+	radius: height / 2;
+	color: "#baffaa"
+
+	RowLayout {
+		id : row 
+		anchors.centerIn: parent
+		spacing: 10 
+
+		Text {
         id : iconSec 
-        text: icon 
+        text: root.icon 
+				color: root.iconColor 
         font {
-            family: "Material Symbols Rounded"
+            family: "Terminess Nerd Font Proto"
             pixelSize: 18
         }
     }
     Text {
         id: dataSec
-        text: data
+        text: root.value
+				color: "purple" 
         font {
-            family: "Terminess Nerd Font Proto"
-            pixelSize: 14
+					family: "Terminess Nerd Font Proto"
+          pixelSize: 14
         }
-    }
+				elide: Text.elideRight 
+				Layout.maximumWidth: root.maxLabelWidth 
+				visible: root.value !== "" 
+	  }
+	}
+
 }
+
+
