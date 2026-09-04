@@ -5,7 +5,7 @@ import Quickshell.Wayland
 import QtQuick.Layouts
 
 Scope {
-  Variants {
+  	Variants {
     model: Quickshell.screens
 
 		PanelWindow {
@@ -18,13 +18,14 @@ Scope {
 				right: true 
 				left: true 
 			}
+			margins.top : 10
 
 			RowLayout {
 				id: left
 				anchors {
 					left : parent.left 
 					verticalCenter : parent.verticalCenter
-					leftMargin : 12
+					leftMargin : 15
 				}
 				spacing: 15
 				
