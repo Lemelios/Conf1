@@ -9,7 +9,7 @@ DataSec {
 
 	icon : {
 		if (charging) return String.fromCodePoint(0xf0084)
-		let tier = Math.floor ((capacity / 10) + 1) % 10
+		let tier = Math.floor ((capacity / 10) + 1)
 		return String.fromCodePoint(0xf0079 + tier)
 	}
 

@@ -8,7 +8,7 @@ Rectangle {
 	property string icon 
 	property string value 
 	property var iconColor: "purple" 
-	property int maxLabelWidth : 500
+	property int maxLabelWidth : 400
 
 	implicitWidth: row.implicitWidth + 22
 	implicitHeight: 33
@@ -38,9 +38,9 @@ Rectangle {
 					family: "Terminess Nerd Font Proto"
           pixelSize: 14
         }
-				elide: Text.elideRight 
-				Layout.maximumWidth: root.maxLabelWidth 
-				visible: root.value !== "" 
+		elide: Text.ElideRight 
+		Layout.maximumWidth: root.maxLabelWidth 
+		visible: root.value !== "" 
 	  }
 	}
 
