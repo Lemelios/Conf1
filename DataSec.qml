@@ -14,7 +14,7 @@ Rectangle {
 	implicitHeight: 33
 
 	radius: height / 2;
-	color: "#baffaa"
+	color: '#aaffd2'
 
 	RowLayout {
 		id : row 
