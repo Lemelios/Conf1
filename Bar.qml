@@ -39,6 +39,7 @@ Scope {
 				anchors.centerIn : parent
 				spacing: 15
 				Clock{}
+				Workspaces {}
 			}
 			RowLayout {
 				id: right 
