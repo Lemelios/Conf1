@@ -21,12 +21,12 @@ Rectangle {
             }   
 
             Rectangle {
-                implicitWidth : modelData.active ? 11 : 2
+                implicitWidth : modelData.active ? 11 : 8
                 implicitHeight : implicitWidth
                 radius : width / 2
-                color : modelData.active ? "transparent" : "#4129e2"
+                color : modelData.active ? "transparent" : '#6d29e2'
                 border.width : modelData.active ? 2 : 0  
-                border.color : "#4129e2"
+                border.color : '#6d29e2'
 
                 Behavior on implicitWidth {
                     NumberAnimation { duration : 150 ; easing.type : Easing.OutCubic}

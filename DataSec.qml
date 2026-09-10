@@ -22,26 +22,26 @@ Rectangle {
 		spacing: 10 
 
 		Text {
-        id : iconSec 
-        text: root.icon 
+			id : iconSec 
+			text: root.icon 
 				color: root.iconColor 
-        font {
-            family: "Terminess Nerd Font Proto"
-            pixelSize: 18
-        }
-    }
-    Text {
-        id: dataSec
-        text: root.value
-				color: "purple" 
-        font {
-					family: "Terminess Nerd Font Proto"
-          pixelSize: 14
-        }
-		elide: Text.ElideRight 
-		Layout.maximumWidth: root.maxLabelWidth 
-		visible: root.value !== "" 
-	  }
+			font {
+				family: "Terminess Nerd Font Proto"
+				pixelSize: 18
+			}
+		}
+		Text {
+			id: dataSec
+			text: root.value
+			color: "purple" 
+			font {
+				family: "Terminess Nerd Font Proto"
+				pixelSize: 14
+			}
+			elide: Text.ElideRight 
+			Layout.maximumWidth: root.maxLabelWidth 
+			visible: root.value !== "" 
+		}
 	}
 
 }

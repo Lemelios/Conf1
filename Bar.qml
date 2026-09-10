@@ -32,6 +32,7 @@ Scope {
 				BatWdg {}
 				AudioWdg {}
 				WifiWdg {}
+				Bluetooth {}
 			}
 
 			RowLayout {
