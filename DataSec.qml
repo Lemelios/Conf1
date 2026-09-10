@@ -1,20 +1,21 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import "./Colors.js" as Col 
 
 Rectangle {
 	id: root 
 
 	property string icon 
 	property string value 
-	property var iconColor: "purple" 
+	property var iconColor: Col.basePurple
 	property int maxLabelWidth : 400
 
 	implicitWidth: row.implicitWidth + 22
 	implicitHeight: 33
 
 	radius: height / 2;
-	color: '#aaffd2'
+	color: Col.baseGreen;
 
 	RowLayout {
 		id : row 
@@ -33,7 +34,7 @@ Rectangle {
 		Text {
 			id: dataSec
 			text: root.value
-			color: "purple" 
+			color: Col.basePurple
 			font {
 				family: "Terminess Nerd Font Proto"
 				pixelSize: 14
