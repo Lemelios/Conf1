@@ -41,7 +41,7 @@ Rectangle {
 			}
 			elide: Text.ElideRight 
 			Layout.maximumWidth: root.maxLabelWidth 
-			visible: root.value !== "" 
+			visible: root.value !== "" && maxLabelWidth !== 0
 		}
 	}
 
